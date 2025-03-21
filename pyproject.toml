@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynflate"
+version = "1.0.0"
+description = "Humane grammar library"
+readme = "README.rst"
+requires-python = ">=3.3"
+license = {text = "MIT"}
+keywords = ["compression", "decompression", "deflate", "lz77", "huffman"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+]
+
+dependencies = []
+
+[tool.setuptools]
+packages = {find = {where = ["src"]}}
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov"
+testpaths = ["tests"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+
+[tool.pip-tools]
+resolver = "backtracking"
+
+[project.optional-dependencies]
+develop = [
+    "detox",
+    "pip-tools",
+    "tox",
+    "twine",
+    "wheel"
+]
+test = [
+    "flake8",
+    "pytest",
+    "pytest-cov"
+]
