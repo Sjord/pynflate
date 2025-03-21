@@ -1,5 +1,0 @@
-detox
-pip-tools
-tox
-twine
-wheel
